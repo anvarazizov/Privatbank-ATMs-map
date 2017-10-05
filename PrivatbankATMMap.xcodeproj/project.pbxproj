@@ -12,9 +12,19 @@
 		6E6069171F865DF700B7D9C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E6069151F865DF700B7D9C0 /* Main.storyboard */; };
 		6E6069191F865DF700B7D9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E6069181F865DF700B7D9C0 /* Assets.xcassets */; };
 		6E60691C1F865DF700B7D9C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E60691A1F865DF700B7D9C0 /* LaunchScreen.storyboard */; };
+		6E6069241F865F0600B7D9C0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6069231F865F0600B7D9C0 /* NetworkManager.swift */; };
+		6E6069251F86607200B7D9C0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6069261F86607200B7D9C0 /* Alamofire.framework */; };
+		6E6069271F8661F600B7D9C0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6069281F8661F600B7D9C0 /* SwiftyJSON.framework */; };
+		6E6069301F86764200B7D9C0 /* ATM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E60692F1F86764200B7D9C0 /* ATM.swift */; };
+		6E6069321F867C4800B7D9C0 /* ATMAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6069311F867C4800B7D9C0 /* ATMAnnotation.swift */; };
+		6EDC62C31F86AB9F00CE2722 /* DropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDC62C41F86AB9F00CE2722 /* DropDown.framework */; };
+		6EDC62C61F86ABED00CE2722 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDC62C51F86ABED00CE2722 /* MapKit.framework */; };
+		B94B1CA66D04E70A9A27E52A /* Pods_PrivatbankATMMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0F380AD1B8DA720180B989 /* Pods_PrivatbankATMMap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30FEBAEF3FD5EE58F35BC96E /* Pods-PrivatbankATMMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrivatbankATMMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrivatbankATMMap/Pods-PrivatbankATMMap.release.xcconfig"; sourceTree = "<group>"; };
+		583E42AF44B913366989F601 /* Pods-PrivatbankATMMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrivatbankATMMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrivatbankATMMap/Pods-PrivatbankATMMap.debug.xcconfig"; sourceTree = "<group>"; };
 		6E60690E1F865DF700B7D9C0 /* PrivatbankATMMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrivatbankATMMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E6069111F865DF700B7D9C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E6069131F865DF700B7D9C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +32,17 @@
 		6E6069181F865DF700B7D9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E60691B1F865DF700B7D9C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E60691D1F865DF700B7D9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E6069231F865F0600B7D9C0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6E6069261F86607200B7D9C0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E6069281F8661F600B7D9C0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E60692A1F866ECC00B7D9C0 /* ZTDropDownTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZTDropDownTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E60692C1F866F5500B7D9C0 /* pop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = pop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E60692E1F86724000B7D9C0 /* YNDropDownMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = YNDropDownMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E60692F1F86764200B7D9C0 /* ATM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATM.swift; sourceTree = "<group>"; };
+		6E6069311F867C4800B7D9C0 /* ATMAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMAnnotation.swift; sourceTree = "<group>"; };
+		6EDC62C41F86AB9F00CE2722 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EDC62C51F86ABED00CE2722 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DC0F380AD1B8DA720180B989 /* Pods_PrivatbankATMMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrivatbankATMMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +50,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EDC62C31F86AB9F00CE2722 /* DropDown.framework in Frameworks */,
+				6E6069271F8661F600B7D9C0 /* SwiftyJSON.framework in Frameworks */,
+				6EDC62C61F86ABED00CE2722 /* MapKit.framework in Frameworks */,
+				6E6069251F86607200B7D9C0 /* Alamofire.framework in Frameworks */,
+				B94B1CA66D04E70A9A27E52A /* Pods_PrivatbankATMMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +66,8 @@
 			children = (
 				6E6069101F865DF700B7D9C0 /* PrivatbankATMMap */,
 				6E60690F1F865DF700B7D9C0 /* Products */,
+				B02EEBAFE2E807AAB4B34D22 /* Pods */,
+				DDB346591D9E1CA80C021A38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +83,40 @@
 			isa = PBXGroup;
 			children = (
 				6E6069111F865DF700B7D9C0 /* AppDelegate.swift */,
+				6E6069231F865F0600B7D9C0 /* NetworkManager.swift */,
 				6E6069131F865DF700B7D9C0 /* ViewController.swift */,
+				6E6069311F867C4800B7D9C0 /* ATMAnnotation.swift */,
+				6E60692F1F86764200B7D9C0 /* ATM.swift */,
 				6E6069151F865DF700B7D9C0 /* Main.storyboard */,
 				6E6069181F865DF700B7D9C0 /* Assets.xcassets */,
 				6E60691A1F865DF700B7D9C0 /* LaunchScreen.storyboard */,
 				6E60691D1F865DF700B7D9C0 /* Info.plist */,
 			);
 			path = PrivatbankATMMap;
+			sourceTree = "<group>";
+		};
+		B02EEBAFE2E807AAB4B34D22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				583E42AF44B913366989F601 /* Pods-PrivatbankATMMap.debug.xcconfig */,
+				30FEBAEF3FD5EE58F35BC96E /* Pods-PrivatbankATMMap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DDB346591D9E1CA80C021A38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EDC62C51F86ABED00CE2722 /* MapKit.framework */,
+				6EDC62C41F86AB9F00CE2722 /* DropDown.framework */,
+				6E60692E1F86724000B7D9C0 /* YNDropDownMenu.framework */,
+				6E60692C1F866F5500B7D9C0 /* pop.framework */,
+				6E60692A1F866ECC00B7D9C0 /* ZTDropDownTextField.framework */,
+				6E6069281F8661F600B7D9C0 /* SwiftyJSON.framework */,
+				6E6069261F86607200B7D9C0 /* Alamofire.framework */,
+				DC0F380AD1B8DA720180B989 /* Pods_PrivatbankATMMap.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E6069201F865DF700B7D9C0 /* Build configuration list for PBXNativeTarget "PrivatbankATMMap" */;
 			buildPhases = (
+				9159EEDB8C5CF918CCA45383 /* [CP] Check Pods Manifest.lock */,
 				6E60690A1F865DF700B7D9C0 /* Sources */,
 				6E60690B1F865DF700B7D9C0 /* Frameworks */,
 				6E60690C1F865DF700B7D9C0 /* Resources */,
+				6F486FED409DDAB425BD9107 /* [CP] Embed Pods Frameworks */,
+				B696FF41C026E68F5FE5EA6E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +155,11 @@
 					6E60690D1F865DF700B7D9C0 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -131,13 +194,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F486FED409DDAB425BD9107 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrivatbankATMMap/Pods-PrivatbankATMMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9159EEDB8C5CF918CCA45383 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B696FF41C026E68F5FE5EA6E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrivatbankATMMap/Pods-PrivatbankATMMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6E60690A1F865DF700B7D9C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6069241F865F0600B7D9C0 /* NetworkManager.swift in Sources */,
 				6E6069141F865DF700B7D9C0 /* ViewController.swift in Sources */,
+				6E6069301F86764200B7D9C0 /* ATM.swift in Sources */,
 				6E6069121F865DF700B7D9C0 /* AppDelegate.swift in Sources */,
+				6E6069321F867C4800B7D9C0 /* ATMAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +386,7 @@
 		};
 		6E6069211F865DF700B7D9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 583E42AF44B913366989F601 /* Pods-PrivatbankATMMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +402,7 @@
 		};
 		6E6069221F865DF700B7D9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30FEBAEF3FD5EE58F35BC96E /* Pods-PrivatbankATMMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
