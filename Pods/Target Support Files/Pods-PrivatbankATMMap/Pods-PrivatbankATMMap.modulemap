@@ -1,0 +1,6 @@
+framework module Pods_PrivatbankATMMap {
+  umbrella header "Pods-PrivatbankATMMap-umbrella.h"
+
+  export *
+  module * { export * }
+}
