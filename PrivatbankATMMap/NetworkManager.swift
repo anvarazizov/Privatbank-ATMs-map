@@ -11,17 +11,25 @@ import Alamofire
 import SwiftyJSON
 import CoreLocation
 
+enum JSONKeys: String {
+    case placeUaJSONKey = "placeUa"
+    case cityUAJSONKey = "cityUA"
+    case fullAddressUaJSONKey = "fullAddressUa"
+    case latitudeJSONKey = "latitude"
+    case longitudeJSONKey = "longitude"
+}
+
 enum City: String {
-    case Kyiv = "Киев"
-    case Lviv = "Львов"
-    case Kharkiv = "Харьков"
-    case Odesa = "Одесса"
-    case Dnipro = "Днепропетровск"
-    case Zhytomyr = "Житомир"
-    case Poltava = "Полтава"
-    case Zhashkiv = "Жашков"
-    case Reni = "Рени"
-    case Chernihiv = "Чернигов"
+    case Kyiv = "Kyiv"
+    case Lviv = "Lviv"
+    case Kharkiv = "Kharkiv"
+    case Odesa = "Odesa"
+    case Dnipro = "Dnipropetrovsk"
+    case Zhytomyr = "Zhytomyr"
+    case Poltava = "Poltava"
+    case Zhashkiv = "Zhashkiv"
+    case Reni = "Reni"
+    case Chernihiv = "Chernihiv"
     
     func centralCoordinate() -> CLLocationCoordinate2D {
         switch self {
@@ -56,12 +64,9 @@ class NetworkManager: NSObject {
     }
     
     private let host = "https://api.privatbank.ua/p24api/infrastructure"
+    private let headers: HTTPHeaders = ["Content-Type": "application/json"]
     
     func getATMs(for city: City, completionHandler: @escaping (JSON) -> Void) {
-        
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json"
-        ]
         
         let parameters: Parameters = [
             "json" : "",

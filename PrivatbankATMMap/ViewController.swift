@@ -9,38 +9,26 @@
 import UIKit
 import MapKit
 import CoreLocation
-import DropDown
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     fileprivate let locationManager = CLLocationManager()
     fileprivate var currentLocation: CLLocation?
-    fileprivate let drowdownList = DropDown()
+    fileprivate var atmsArray = [ATM]()
     
-    let allCities = [City.Kyiv, City.Chernihiv, City.Dnipro, City.Kharkiv, City.Odesa, City.Lviv, City.Poltava, City.Reni, City.Zhytomyr, City.Zhashkiv]
-    
-    var atmsArray = [ATM]()
+    fileprivate let CityPickerVCIdentifier = "CityPickerViewController"
+    fileprivate let placeUaJSONKey = "placeUa"
+    fileprivate let cityUAJSONKey = "cityUA"
+    fileprivate let fullAddressUaJSONKey = "fullAddressUa"
+    fileprivate let latitudeJSONKey = "latitude"
+    fileprivate let longitudeJSONKey = "longitude"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Map of ATMs"
-        let rightItem = UIBarButtonItem(title: "Choose a city", style: .plain, target: self, action: #selector(ViewController.presentDropDownList))
-        navigationItem.rightBarButtonItem = rightItem
-        
-        drowdownList.anchorView = view
-        drowdownList.cellHeight = 40.0
-        drowdownList.direction = .top
-        drowdownList.textFont = UIFont.systemFont(ofSize: 13.0)
-        drowdownList.dataSource = allCities.map({ $0.rawValue })
-        drowdownList.cellConfiguration = { [unowned self] (index, item) in
-            return self.allCities[index].rawValue
-        }
-        
-        drowdownList.selectionAction = { [unowned self] (index, item) in
-            self.loadData(for: self.allCities[index])
-        }
+        setupRightBarButtonItem(title: "Choose a city")
         
         // locationManager and mapView setup
         locationManager.delegate = self
@@ -51,21 +39,22 @@ class ViewController: UIViewController {
         mapView.showsCompass = true
     }
     
-    @objc func presentDropDownList() {
-        drowdownList.show()
+    fileprivate func setupRightBarButtonItem(title: String) {
+        let rightItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(ViewController.showCityPicker))
+        navigationItem.rightBarButtonItem = rightItem
     }
     
-    func loadData(for city: City) {
+    fileprivate func loadData(for city: City) {
         mapView.removeAnnotations(mapView.annotations)
         updateMap(with: city.centralCoordinate())
-        NetworkManager.shared.getATMs(for: city) { (atms) in
+        NetworkManager.shared.getATMs(for: city) { [unowned self] (atms) in
             for (_, object) in atms {
                 let dict = object.dictionaryValue
-                if  let place = dict["placeUa"],
-                    let city = dict["cityUA"],
-                    let address = dict["fullAddressUa"],
-                    let latitude = dict["latitude"],
-                    let longitude = dict["longitude"]
+                if  let place = dict[self.placeUaJSONKey],
+                    let city = dict[self.cityUAJSONKey],
+                    let address = dict[self.fullAddressUaJSONKey],
+                    let latitude = dict[self.latitudeJSONKey],
+                    let longitude = dict[self.longitudeJSONKey]
                 {
                     let atm: ATM = ATM(name: place.stringValue,
                                        city: city.stringValue,
@@ -85,20 +74,36 @@ class ViewController: UIViewController {
     fileprivate func updateMap(with coordinate: CLLocationCoordinate2D) {
         let region = MKCoordinateRegionMakeWithDistance(coordinate, 2000, 2000)
         mapView.setRegion(region, animated: true)
-        let pin = ATMAnnotation(title: "Start Location", subtitle: "Start Location Subtitle", coordinate: coordinate)
+        let pin = ATMAnnotation(title: NSLocalizedString("Start Location", comment: ""),
+                                subtitle: NSLocalizedString("Start Location Subtitle", comment: ""),
+                                coordinate: coordinate)
         mapView.addAnnotation(pin)
+    }
+}
+
+extension ViewController: CityPickerViewControllerDelegate {
+    func cityDidPicked(city: City) {
+        setupRightBarButtonItem(title: city.rawValue)
+        loadData(for: city)
+    }
+    
+    @objc fileprivate func showCityPicker() {
+        let cityPickerVC = storyboard?.instantiateViewController(withIdentifier: CityPickerVCIdentifier) as! CityPickerViewController
+        cityPickerVC.delegate = self
+        present(cityPickerVC, animated: true, completion: nil)
     }
 }
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations[0]
-        updateMap(with: currentLocation!.coordinate)
+        guard let currentLocation = currentLocation else { return }
+        updateMap(with: currentLocation.coordinate)
         locationManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
+        print("Location manager error: \(error.localizedDescription)")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -107,8 +112,9 @@ extension ViewController: CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             break
         default:
-            print("status is \(status)")
+            print("Location manager authorization status is \(status)")
             break
         }
     }
 }
+

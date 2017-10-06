@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5957EFCC51B6F15B268F38E78B117482"
+               BlueprintIdentifier = "F87BB371378E3FCDAB4E799138826FDD"
                BuildableName = "Pods_PrivatbankATMMap.framework"
                BlueprintName = "Pods-PrivatbankATMMap"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5957EFCC51B6F15B268F38E78B117482"
+            BlueprintIdentifier = "F87BB371378E3FCDAB4E799138826FDD"
             BuildableName = "Pods_PrivatbankATMMap.framework"
             BlueprintName = "Pods-PrivatbankATMMap"
             ReferencedContainer = "container:Pods.xcodeproj">

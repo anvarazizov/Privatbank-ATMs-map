@@ -39,6 +39,46 @@
             </objects>
             <point key="canvasLocation" x="372" y="33.733133433283363"/>
         </scene>
+        <!--City Picker View Controller-->
+        <scene sceneID="A4S-bh-K8k">
+            <objects>
+                <viewController storyboardIdentifier="CityPickerViewController" id="UTK-UU-XIo" customClass="CityPickerViewController" customModule="PrivatbankATMMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TRD-Q5-TQ5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAd-i4-2IR">
+                                <rect key="frame" x="0.0" y="183.5" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="yOt-4t-MF5"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m79-Nx-ZZ7">
+                                <rect key="frame" x="172" y="491" width="30" height="30"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="UTK-UU-XIo" eventType="touchUpInside" id="vpN-Zj-bUe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aAd-i4-2IR" firstAttribute="centerY" secondItem="TRD-Q5-TQ5" secondAttribute="centerY" id="5dL-yP-Vbv"/>
+                            <constraint firstAttribute="trailing" secondItem="aAd-i4-2IR" secondAttribute="trailing" id="5fS-Za-gIu"/>
+                            <constraint firstItem="m79-Nx-ZZ7" firstAttribute="top" secondItem="aAd-i4-2IR" secondAttribute="bottom" constant="7.5" id="Jzg-gR-Khw"/>
+                            <constraint firstItem="aAd-i4-2IR" firstAttribute="leading" secondItem="TRD-Q5-TQ5" secondAttribute="leading" id="mGd-FJ-4aD"/>
+                            <constraint firstItem="m79-Nx-ZZ7" firstAttribute="centerX" secondItem="aAd-i4-2IR" secondAttribute="centerX" id="zLa-X2-Lii"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="m79-Nx-ZZ7" id="uXJ-a7-pZF"/>
+                        <outlet property="pickerView" destination="aAd-i4-2IR" id="Wc6-m7-yB3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ibt-7G-bgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117.5999999999999" y="35.532233883058474"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jXk-b2-Vc6">
             <objects>
