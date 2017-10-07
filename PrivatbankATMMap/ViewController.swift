@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.showsScale = true
         mapView.showsCompass = true
@@ -46,7 +47,6 @@ class ViewController: UIViewController {
     
     fileprivate func loadData(for city: City) {
         mapView.removeAnnotations(mapView.annotations)
-        updateMap(with: city.centralCoordinate())
         NetworkManager.shared.getATMs(for: city) { [unowned self] (atms) in
             for (_, object) in atms {
                 let dict = object.dictionaryValue
@@ -72,10 +72,10 @@ class ViewController: UIViewController {
     }
     
     fileprivate func updateMap(with coordinate: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegionMakeWithDistance(coordinate, 2000, 2000)
+        let region = MKCoordinateRegionMakeWithDistance(coordinate, 3000, 3000)
         mapView.setRegion(region, animated: true)
         let pin = ATMAnnotation(title: NSLocalizedString("Start Location", comment: ""),
-                                subtitle: NSLocalizedString("Start Location Subtitle", comment: ""),
+                                subtitle: NSLocalizedString("City Center", comment: ""),
                                 coordinate: coordinate)
         mapView.addAnnotation(pin)
     }
@@ -85,6 +85,13 @@ extension ViewController: CityPickerViewControllerDelegate {
     func cityDidPicked(city: City) {
         setupRightBarButtonItem(title: city.rawValue)
         loadData(for: city)
+        var coordinate = city.centralCoordinate()
+        if let currentLocation = currentLocation {
+            if city.distance(from: currentLocation) < city.radius() {
+                coordinate = currentLocation.coordinate
+            }
+        }
+        updateMap(with: coordinate)
     }
     
     @objc fileprivate func showCityPicker() {
@@ -100,6 +107,11 @@ extension ViewController: CLLocationManagerDelegate {
         guard let currentLocation = currentLocation else { return }
         updateMap(with: currentLocation.coordinate)
         locationManager.stopUpdatingLocation()
+        
+        let nearestCities = Shared.cities.filter({ $0.distance(from: currentLocation) < $0.radius() })
+        if nearestCities.count > 0 {
+            loadData(for: nearestCities[0])
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -112,8 +124,57 @@ extension ViewController: CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             break
         default:
-            print("Location manager authorization status is \(status)")
+            
+            let alertVC = UIAlertController(title: NSLocalizedString("Hello", comment: ""),
+                                            message: NSLocalizedString("Please, turn on location or choose a city in a top right corner", comment: ""),
+                                            preferredStyle: .alert)
+            let okAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""),
+                                         style: .default,
+                                         handler: nil)
+            alertVC.addAction(okAction)
+            present(alertVC, animated: true, completion: nil)
+            
             break
+        }
+    }
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        var view: MKPinAnnotationView
+        guard let annotation = annotation as? ATMAnnotation else { return nil }
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: "ATMAnnotationIdentifier") as? MKPinAnnotationView {
+            view = dequeuedView
+            view.canShowCallout = false
+            view.isEnabled = true
+        } else {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "ATMAnnotationIdentifier")
+            view.canShowCallout = false
+            view.isEnabled = true
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if view.annotation is MKUserLocation {
+            return
+        }
+
+        if let annotation = view.annotation as? ATMAnnotation {
+            let calloutView = CustomAnnotationPopUpView(frame: CGRect(x: 0.0, y: 0.0, width: 140.0, height: 80.0))
+            calloutView.placeLabel.text = annotation.title
+            calloutView.addressLabel.text = annotation.subtitle
+            calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height * 0.52)
+            view.addSubview(calloutView)
+            mapView.setCenter(annotation.coordinate, animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if view.isKind(of: MKPinAnnotationView.self) {
+            for subview in view.subviews {
+                subview.removeFromSuperview()
+            }
         }
     }
 }

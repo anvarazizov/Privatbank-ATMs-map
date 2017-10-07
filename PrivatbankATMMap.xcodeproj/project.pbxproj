@@ -19,6 +19,11 @@
 		6E6069321F867C4800B7D9C0 /* ATMAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6069311F867C4800B7D9C0 /* ATMAnnotation.swift */; };
 		6EDC62C61F86ABED00CE2722 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDC62C51F86ABED00CE2722 /* MapKit.framework */; };
 		6EE354E01F876A4100DB214E /* CityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE354DF1F876A4100DB214E /* CityPickerViewController.swift */; };
+		6EE51F831F88FD1800F7731F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE51F821F88FD1800F7731F /* AnnotationView.swift */; };
+		6EE51F851F88FE6E00F7731F /* CustomAnnotationPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE51F841F88FE6E00F7731F /* CustomAnnotationPopUpView.swift */; };
+		6EE51F871F88FE9400F7731F /* CustomAnnotationPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE51F861F88FE9400F7731F /* CustomAnnotationPopUpView.xib */; };
+		6EE51F891F89102600F7731F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE51F881F89102600F7731F /* City.swift */; };
+		6EE51F8B1F89153600F7731F /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE51F8A1F89153600F7731F /* Shared.swift */; };
 		B94B1CA66D04E70A9A27E52A /* Pods_PrivatbankATMMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0F380AD1B8DA720180B989 /* Pods_PrivatbankATMMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +48,11 @@
 		6EDC62C41F86AB9F00CE2722 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EDC62C51F86ABED00CE2722 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6EE354DF1F876A4100DB214E /* CityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerViewController.swift; sourceTree = "<group>"; };
+		6EE51F821F88FD1800F7731F /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		6EE51F841F88FE6E00F7731F /* CustomAnnotationPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationPopUpView.swift; sourceTree = "<group>"; };
+		6EE51F861F88FE9400F7731F /* CustomAnnotationPopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomAnnotationPopUpView.xib; sourceTree = "<group>"; };
+		6EE51F881F89102600F7731F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		6EE51F8A1F89153600F7731F /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
 		DC0F380AD1B8DA720180B989 /* Pods_PrivatbankATMMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrivatbankATMMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,11 +93,16 @@
 			isa = PBXGroup;
 			children = (
 				6E6069111F865DF700B7D9C0 /* AppDelegate.swift */,
+				6EE51F8A1F89153600F7731F /* Shared.swift */,
+				6E60692F1F86764200B7D9C0 /* ATM.swift */,
+				6EE51F881F89102600F7731F /* City.swift */,
 				6E6069231F865F0600B7D9C0 /* NetworkManager.swift */,
 				6E6069131F865DF700B7D9C0 /* ViewController.swift */,
 				6EE354DF1F876A4100DB214E /* CityPickerViewController.swift */,
+				6EE51F821F88FD1800F7731F /* AnnotationView.swift */,
 				6E6069311F867C4800B7D9C0 /* ATMAnnotation.swift */,
-				6E60692F1F86764200B7D9C0 /* ATM.swift */,
+				6EE51F841F88FE6E00F7731F /* CustomAnnotationPopUpView.swift */,
+				6EE51F861F88FE9400F7731F /* CustomAnnotationPopUpView.xib */,
 				6E6069151F865DF700B7D9C0 /* Main.storyboard */,
 				6E6069181F865DF700B7D9C0 /* Assets.xcassets */,
 				6E60691A1F865DF700B7D9C0 /* LaunchScreen.storyboard */,
@@ -190,6 +205,7 @@
 				6E60691C1F865DF700B7D9C0 /* LaunchScreen.storyboard in Resources */,
 				6E6069191F865DF700B7D9C0 /* Assets.xcassets in Resources */,
 				6E6069171F865DF700B7D9C0 /* Main.storyboard in Resources */,
+				6EE51F871F88FE9400F7731F /* CustomAnnotationPopUpView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,12 +264,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE51F8B1F89153600F7731F /* Shared.swift in Sources */,
 				6E6069241F865F0600B7D9C0 /* NetworkManager.swift in Sources */,
 				6E6069141F865DF700B7D9C0 /* ViewController.swift in Sources */,
+				6EE51F891F89102600F7731F /* City.swift in Sources */,
 				6E6069301F86764200B7D9C0 /* ATM.swift in Sources */,
+				6EE51F831F88FD1800F7731F /* AnnotationView.swift in Sources */,
 				6E6069121F865DF700B7D9C0 /* AppDelegate.swift in Sources */,
 				6E6069321F867C4800B7D9C0 /* ATMAnnotation.swift in Sources */,
 				6EE354E01F876A4100DB214E /* CityPickerViewController.swift in Sources */,
+				6EE51F851F88FE6E00F7731F /* CustomAnnotationPopUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
